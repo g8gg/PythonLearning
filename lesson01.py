@@ -120,7 +120,7 @@ drinks = {
     '无酒精': {'可乐', '雪碧'},
     '低酒': {'红酒', '桃酒'},
 }
-otherDrinks = {'二锅头', '伊力特', '白酒'}
+other_drinks = {'二锅头', '伊力特', '白酒'}
 
 for type, choice in drinks.items():
     if type == '无酒精':
@@ -128,12 +128,27 @@ for type, choice in drinks.items():
     elif '高酒精' in type and not ('白酒' in choice):
         print(choice)
     elif '高酒精' in type:
-        emptyDrinks = choice & otherDrinks
-        innerDrinks = choice | otherDrinks
-        subDrinks = choice - otherDrinks
-        oxDrinks = choice ^ otherDrinks
+        empty_drinks = choice & other_drinks
+        inner_drinks = choice | other_drinks
+        sub_drinks = choice - other_drinks
+        ox_drinks = choice ^ other_drinks
         print()
-        print(emptyDrinks)
-        print(innerDrinks)
-        print(subDrinks)
-        print(oxDrinks)  # 异或
+        print(empty_drinks)
+        print(inner_drinks)
+        print(sub_drinks)
+        print(ox_drinks)  # 异或
+
+# create complex data structure
+marxes = ['Grouchos', 'Chico', 'Harpo']
+pythons = ['Chapman', 'Cleese', 'Gilliam', 'Jones', 'Palin']
+stooges = ['Moe', 'Curly', 'Larry']
+
+tuple_of_lists = marxes, pythons, stooges
+print(tuple_of_lists)
+
+list_of_lists = [marxes, pythons, stooges]
+print(list_of_lists)
+
+# dict's KEY must be unmutable, so only Tuple can be, List, Dict and Set can't be
+dict_of_lists = {'Marxes': marxes, 'Pythons': pythons, 'Stooges': stooges}
+print(dict_of_lists)
