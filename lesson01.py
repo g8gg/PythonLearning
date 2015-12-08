@@ -68,10 +68,10 @@ lots = ((1, 3), (2, 2), (3, 1))
 print(dict(lots))
 lots = ([1, 3], [2, 2], [3, 1])
 print(dict(lots))
-str = ['ab', 'cd', 'ef', 'gh']
-print(dict(str))
-str = ('ab', 'cd', 'ef', 'gh')
-print(dict(str))
+str1 = ['ab', 'cd', 'ef', 'gh']
+print(dict(str1))
+str1 = ('ab', 'cd', 'ef', 'gh')
+print(dict(str1))
 
 dictNames = {'马': '骏', '锅': '巴', '锅巴': 'GG'}
 print(dictNames)
@@ -122,12 +122,12 @@ drinks = {
 }
 other_drinks = {'二锅头', '伊力特', '白酒'}
 
-for type, choice in drinks.items():
-    if type == '无酒精':
+for alcohol, choice in drinks.items():
+    if alcohol == '无酒精':
         print(choice)  # 注意,这是无序集合哦!!!
-    elif '高酒精' in type and not ('白酒' in choice):
+    elif '高酒精' in alcohol and not ('白酒' in choice):
         print(choice)
-    elif '高酒精' in type:
+    elif '高酒精' in alcohol:
         empty_drinks = choice & other_drinks
         inner_drinks = choice | other_drinks
         sub_drinks = choice - other_drinks
