@@ -11,7 +11,6 @@ def double_me(me: int):
     """
     return me * 2
 
-
 print(double_me(2))
 
 
