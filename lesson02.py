@@ -248,7 +248,7 @@ non_buggy('b')
 
 
 def print_args(*args):
-    'just test *args positional arguments'
+    """just test *args positional arguments"""
     print(args)
 
 
