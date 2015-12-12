@@ -2,7 +2,8 @@
 # Lesson 06 b
 # Class method &  Static method
 # Polymorphic
-
+# named tuple 命名元组
+from collections import namedtuple
 from this import s
 import codecs
 
@@ -139,3 +140,67 @@ print(first)  # use __str__
 >>> first  # use __repr__
 Word→test
 """
+
+print("-" * 80)
+
+
+# Class and Named Tuple
+
+# class
+# is-a关系用继承, has-a关系考虑组合(composition)和聚合(aggregation)
+
+
+class Bill:
+    def __init__(self, description):
+        self.description = description
+
+
+class Tail:
+    def __init__(self, length):
+        self.length = length
+
+
+class Duck:
+    def __init__(self, bill, tail):
+        self.bill = bill
+        self.tail = tail
+
+    def about(self):
+        print('This duck has a', self.bill.description, 'bill and a', self.tail.length, 'tail')
+
+
+tail = Tail('long')
+bill = Bill('wide orange')
+duck = Duck(bill, tail)
+duck.about()
+
+# named tuple
+# 命名元组的使用,三种初始化方法
+Duck1 = namedtuple('Duck', 'bill tail')
+duck1 = Duck1('wide orange', 'long')
+print(duck1)
+print(duck1.bill, duck1.tail)
+
+# named tuple constructed by dictionary {}
+parts = {'bill': 'wide orange', 'tail': 'long'}  # **parts是关键词变量(keyword argument),抽取出key-value供Duck1()使用
+duck2 = Duck1(**parts)
+print(duck2)
+# print(duck2.bill, duck2.tail)
+duck3 = Duck1(bill='wide orange 3', tail='long 3')  # 作用同上
+print(duck3)
+# print(duck3.bill, duck3.tail)
+
+# 命名元组是不可变的,但是可以修改某些域的值并返回一个新的命名元组,不同于字典Dict
+duck_dict = {'bill': 'wide orange', 'tail': 'long'}
+duck_dict['color'] = 'red'  # dict add new K-V pair
+print(duck_dict)
+
+# duck3.bill='test'  # can't set attribute
+duck4 = duck1._replace(bill='crushing', tail='magnificent')
+print(duck4)
+# duck4.color="red"  # AttributeError: 'Duck' object has no attribute 'color'
+
+# 命名元组的好处
+Settings = namedtuple('App', 'AppName Version Author MD5Sign Major Minor Build')
+my_app_settings = Settings('App1', '1.0', 'G8GG', 'xxxxxxxxxx', '1', '01', '1212')
+print(my_app_settings)
