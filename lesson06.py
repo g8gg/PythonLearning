@@ -1,7 +1,3 @@
-# Object & Class
-# lesson 06
-# No object is mysterious. The mysterious is your eye.
-# Take an object. Do something to it. Do something else to it.
 
 
 class AnObjectClass:
@@ -101,4 +97,4 @@ print(temp_team1.name, temp_team1.leader)
 temp_team1.do()
 temp_team1.new_do()
 
-TempTeam.new_do(temp_team1)  # Note: Yes, Python pass self like this.
+TempTeam.new_do(temp_team1)  # Note: Yes, Python pass self like this. Self的自辩
