@@ -200,7 +200,29 @@ duck4 = duck1._replace(bill='crushing', tail='magnificent')
 print(duck4)
 # duck4.color="red"  # AttributeError: 'Duck' object has no attribute 'color'
 
+
+
 # 命名元组的好处
 Settings = namedtuple('App', 'AppName Version Author MD5Sign Major Minor Build')
 my_app_settings = Settings('App1', '1.0', 'G8GG', 'xxxxxxxxxx', '1', '01', '1212')
-print(my_app_settings)
+print(my_app_settings.AppName)
+
+Settings.AppName = "App2"
+# Settings.
+print(my_app_settings.AppName)
+
+Point = namedtuple('Point', ['x', 'y'])
+p = Point(11, y=12)
+print(p)
+x, y = p
+print(x, y)
+
+a = [{"a": "a"}, {"bb": 1}]
+# print(a.)
+
+import pandas as pd
+
+# import numpy as np
+
+tmp = pd.DataFrame(a)
+# tmp.
