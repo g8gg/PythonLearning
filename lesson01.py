@@ -59,6 +59,7 @@ print(a, b, c, d, e)
 f = empty_tuple[-1]
 print(f)
 
+print("*" * 80)
 # dictionary
 lots = [[1, 2], [2, 2], [3, 2]]
 print(dict(lots))

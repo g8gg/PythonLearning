@@ -208,6 +208,7 @@ my_app_settings = Settings('App1', '1.0', 'G8GG', 'xxxxxxxxxx', '1', '01', '1212
 print(my_app_settings.AppName)
 
 Settings.AppName = "App2"
+
 # Settings.
 print(my_app_settings.AppName)
 
