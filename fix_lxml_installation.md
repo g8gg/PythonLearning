@@ -92,7 +92,7 @@ Requirement already satisfied (use --upgrade to upgrade): setuptools in /Library
 Collecting cffi>=1.1.0 (from cryptography>=0.7->pyOpenSSL->scrapy)
   Using cached cffi-1.4.2-cp35-cp35m-macosx_10_6_intel.whl
 Collecting idna>=2.0 (from cryptography>=0.7->pyOpenSSL->scrapy)
-  Using cached idna-2.0-py2.py3-none-any.whl
+  Using cached idna-2.0-py2.py3-none-any.whllug
 Collecting pycparser (from cffi>=1.1.0->cryptography>=0.7->pyOpenSSL->scrapy)
   Using cached pycparser-2.14.tar.gz
 Installing collected packages: pyasn1, pycparser, cffi, idna, cryptography, pyOpenSSL, cssselect, characteristic, pyasn1-modules, service-identity, scrapy

@@ -1,30 +1,30 @@
 # try import other module
 # 选择自己的风格去使用,只要保持模块的引用和使用是明晰的
 
-import g8ggquote as gq  # import user module from the same path
+from lesson import g8ggquote as gq
 
 saying = gq.get_quote()
 print('G8GG said:', saying, "", sep='"')
 
 
 def my_func():
-    from g8ggquote import fake as my_fake  # 导入模块的某一部分,并使用别名
+    from lesson.g8ggquote import fake as my_fake  # 导入模块的某一部分,并使用别名
     # fake()
     my_fake()
 
 
 def my_func1():
-    from g8ggquote import get_quote  # 导入模块的某一部分
+    from lesson.g8ggquote import get_quote  # 导入模块的某一部分
     print(get_quote())
 
 
 def my_func_global_get():
-    from g8ggquote_global import get_author
+    from lesson.g8ggquote_global import get_author
     print(get_author())
 
 
 def my_func_global_set(value):
-    from g8ggquote_global import set_author
+    from lesson.g8ggquote_global import set_author
     print(set_author(value))
 
 

@@ -1,6 +1,6 @@
 # lesson 00
 # function & class
-import module
+from lesson import module
 
 
 def double_me(me: int):
