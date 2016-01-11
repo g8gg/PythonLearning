@@ -1,8 +1,6 @@
 from flask import Flask
 from config import DevConfig
 from flask.ext.sqlalchemy import SQLAlchemy
-from sqlalchemy.sql.expression import not_, or_
-from datetime import datetime
 
 app = Flask(__name__)
 app.config.from_object(DevConfig)
@@ -24,11 +22,17 @@ class User(db.Model):
     id = db.Column(db.Integer(), primary_key=True)
     username = db.Column(db.String(255))
     password = db.Column(db.String(255))
+    # posts = db.relationship(
+    #     'Post',
+    #     backref=db.backref('post', lazy='subquery')
+    # )
     posts = db.relationship(
             'Post',
-            backref='user',
-            lazy='dynamic'
+            backref='post',
+            lazy='subquery'
     )
+
+    # 坑爹的<<Mastering Flask>>demo, bug fixed.
 
     def __init__(self, username):
         self.username = username
@@ -44,6 +48,11 @@ class Post(db.Model):
     title = db.Column(db.String(255))
     text = db.Column(db.Text())
     publish_date = db.Column(db.DateTime())
+    posts = db.relationship(
+            'Comment',
+            backref='post',
+            lazy='dynamic'
+    )
     user_id = db.Column(db.Integer(), db.ForeignKey('user.id'))
 
     def __init__(self, title):
@@ -51,3 +60,16 @@ class Post(db.Model):
 
     def __repr__(self):
         return "<Post '{}'>".format(self.title)
+
+
+class Comment(db.Model):
+    __tablename__ = 'comment'
+
+    id = db.Column(db.Integer(), primary_key=True)
+    name = db.Column(db.String(255))
+    text = db.Column(db.Text())
+    date = db.Column(db.DateTime())
+    post_id = db.Column(db.Integer(), db.ForeignKey('post.id'))
+
+    def __repr__(self):
+        return "<Comment '{}'>".format(self.text[:15])
