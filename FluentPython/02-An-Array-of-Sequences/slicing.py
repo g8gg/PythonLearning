@@ -77,7 +77,7 @@ del (l[5:7])
 print(l)
 l[3::2] = [11, 22]
 print(l)
-# l[2:5] = 100
+# l[2:5] = 100 #  When the target of the assignment is a slice, the right side must be an iterable object, even if it has just one item.
 # TypeError: can only assign an iterable
 #     S.indices(len) -> (start, stop, stride)
 l[2:5] = [100]
